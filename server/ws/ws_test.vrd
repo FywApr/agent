@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<point xmlns="http://v8.1c.ru/8.2/virtual-resource-system"
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		base="/ws_test"
+		ib="Srvr=&quot;localhost&quot;;Ref=&quot;ws_test&quot;;Usr=&quot;ws_user&quot;;Pwd=&quot;123&quot;;"
+		enable="false">
+	<httpServices publishExtensionsByDefault="true">
+		<service name="ws_test"
+				rootUrl="ws_test"
+				enable="true"
+				reuseSessions="autouse"
+				sessionMaxAge="180"
+				poolSize="10"
+				poolTimeout="5"/>
+	</httpServices>
+</point>

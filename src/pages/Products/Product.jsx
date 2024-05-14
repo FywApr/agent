@@ -6,7 +6,7 @@ export default function Product() {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    fetch(`http://smak.back/server/api/products/get-product.php?id=${id}`)
+    fetch(`http://test.test/server/api/products/get-product.php?id=${id}`)
       .then((response) => response.json())
       .then((data) => {
         setProduct(data);
@@ -18,7 +18,7 @@ export default function Product() {
       <main className="product">
         <img
           className="product-img"
-          src={`http://smak.back/${product.image}`}
+          src={`http://test.test/${product.image}`}
           alt={product.product_name}
         />
         <ul>

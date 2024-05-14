@@ -5,10 +5,20 @@ export default function Catalog() {
   const [catalogs, setCatalogs] = useState([]);
 
   useEffect(() => {
-    fetch("http://smak.back/server/api/catalogs/get-catalogs.php")
+    fetch("http://test.test/server/api/catalogs/get-catalogs.php")
       .then((response) => response.json())
       .then((data) => {
         setCatalogs(data);
+      });
+  }, []);
+
+
+  
+  useEffect(() => {
+    fetch("http://test.test/server/api/c/get-products.php")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
       });
   }, []);
 
@@ -24,7 +34,7 @@ export default function Catalog() {
             >
               <li>
                 <img
-                  src={`http://smak.back/${catalog.image}`}
+                  src={`http://test.test/${catalog.image}`}
                   alt={catalog.name}
                 />
                 {catalog.name}
