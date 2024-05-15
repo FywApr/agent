@@ -5,16 +5,6 @@ export default function Catalog() {
   const [catalogs, setCatalogs] = useState([]);
 
   useEffect(() => {
-    fetch("http://test.test/server/api/catalogs/get-catalogs.php")
-      .then((response) => response.json())
-      .then((data) => {
-        setCatalogs(data);
-      });
-  }, []);
-
-
-  
-  useEffect(() => {
     fetch("http://test.test/server/api/c/get-products.php")
       .then((response) => response.json())
       .then((data) => {

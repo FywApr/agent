@@ -1,5 +1,6 @@
 <?php
 // Задаем доступ + обработка ошибки
+require_once("..".DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR."database".DIRECTORY_SEPARATOR."database.php");
 header("Access-Control-Allow-Origin: http://localhost:3000");
 header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Headers: Content-Type");
@@ -29,5 +30,11 @@ if ($result === FALSE) {
     echo "Ошибка при выполнении запроса";
 } else {
     // Обработка успешного ответа
-    echo $result;
-}
+    $assoc_array = json_decode($result, JSON_UNESCAPED_UNICODE);
+    foreach($assoc_array as $obj) {
+        $sql = 'INSERT INTO `smak`.`products`(`id`,`catalog_id`,`sub_catalog_id`,`brand_id`,`name`,`description`,`price`,`compound`,`image_path`,`exp_date`,`exp_type`,`country`,`unit`,`capacity`,`sale`,`promo`,`total_price`) VALUES (DEFAULT, '.$obj["catalog_id"].', '.$obj["sub_catalog_id"].', '.$obj["brand_id"].', "'.$obj["name"].'", "'.$obj["description"].'", '.$obj["price"].', "'.$obj["compound"].'", "'.$obj["image_path"].'", '.$obj["exp_date"].', "'.$obj["exp_type"].'", "'.$obj["country"].'", "'.$obj["unit"].'", '.$obj["capacity"].', '.$obj["sale"].', '.$obj["promo"].', '.$obj["total_price"].')';
+
+        $database->query($sql);
+    }
+    echo true;
+}   
