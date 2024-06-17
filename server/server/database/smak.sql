@@ -1,4 +1,5 @@
--- CREATE DATABASE `smak` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE DATABASE `smak` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 DROP VIEW IF EXISTS `smak`.`products-data`;
 DROP TABLE IF EXISTS `smak`.`products`;
